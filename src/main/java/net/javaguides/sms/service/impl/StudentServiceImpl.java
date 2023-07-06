@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import jakarta.transaction.Transactional;
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.repository.StudentRepository;
 import net.javaguides.sms.service.StudentService;
@@ -28,6 +29,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
+	@Transactional
 	public Student saveStudent(Student student) {
 
 		return studentRepository.save(student);
@@ -44,6 +46,7 @@ public class StudentServiceImpl implements StudentService{
 
 
 	@Override
+	@Transactional
 	public Student updateStudent(Student student) {
 
 		return studentRepository.save(student);
@@ -52,6 +55,7 @@ public class StudentServiceImpl implements StudentService{
 
 
 	@Override
+	@Transactional
 	public void deleteStudentById(Long id) {
 
 		studentRepository.deleteById(id);
